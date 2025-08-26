@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres pololear conmigo?</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Quicksand -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #ffe6ea 0%, #e3f0ff 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        h1, h2, p, .lead, button {
+            font-family: 'Quicksand', sans-serif !important;
+        }
+        .gallery-img {
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(231,84,128,0.12);
+            margin-bottom: 12px;
+            max-height: 320px;
+            object-fit: cover;
+            background: #fff;
+            padding: 8px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .photo-gallery hr {
+            border-top: 2px dashed #e75480;
+            margin: 32px 0;
+        }
+        .photo-caption {
+            text-align: center;
+            color: #e75480;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .question h2 {
+            color: #e75480;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        #siBtn, #noBtn {
+            font-size: 1.2rem;
+            padding: 10px 32px;
+            border-radius: 24px;
+            box-shadow: 0 2px 8px rgba(231,84,128,0.10);
+            transition: transform 0.1s;
+        }
+        #siBtn:hover, #noBtn:hover {
+            transform: scale(1.08);
+        }
+        
+        /* Animación de rebote */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+        
+        .bounce-animation {
+            animation: bounce 0.7s;
+        }
+        
+        /* Estilos para las serpentinas */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 20px;
+            opacity: 0.8;
+            animation: fall linear forwards;
+            top: -20px;
+            z-index: 9999;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Estilo para el contenedor de la pregunta */
+        .question-container {
+            position: relative;
+            min-height: 200px;
+        }
+        
+        /* Mensaje final con mejor estilo */
+        #mensajeFinal {
+            display: none;
+            color: #e75480;
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 20px rgba(231, 84, 128, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .gallery-img {
+                max-height: 180px;
+            }
+            #siBtn, #noBtn {
+                font-size: 1rem;
+                padding: 8px 20px;
+            }
+            #mensajeFinal {
+                font-size: 1.4rem;
+                margin-top: 1.5rem;
+                padding: 1rem;
+            }
+        }
+        @media (max-width: 576px) {
+            .container {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
+            .gallery-img {
+                max-width: 100%;
+                height: auto;
+            }
+            .question-container {
+                min-height: 250px;
+            }
+            #mensajeFinal {
+                font-size: 1.2rem;
+                margin-top: 1rem;
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="display-5 fw-bold" style="color: #e75480;">
+                Hola mi amor, hoy es un día muy especial...<br>
+                porque fue un 26 de julio cuando nos conocimos y no nos separamos más 💕
+            </h1>
+            <p class="lead mt-4" style="color: #6c757d;">
+                Quiero compartir contigo algunos recuerdos y una pregunta muy importante...
+            </p>
+        </div>
+
+        <!-- Galería de fotos -->
+        <div class="photo-gallery">
+            <div class="row justify-content-center align-items-center mb-4">
+                <div class="col-12 col-md-6">
+                    <img src="./img/Foto_1.jpg" alt="Foto 1" class="img-fluid gallery-img">
+                    <div class="photo-caption">Cuando nos sacamos nuestra primera foto</div>
+                </div>
+            </div>
+            <hr>
+            <div class="row justify-content-center align-items-center mb-4">
+                <div class="col-12 col-md-6">
+                    <img src="./img/Foto_2.jpg" alt="Foto 2" class="img-fluid gallery-img">
+                    <div class="photo-caption">Cuando me acompañaste por primera vez al gym</div>
+                </div>
+            </div>
+            <hr>
+            <div class="row justify-content-center align-items-center mb-4">
+                <div class="col-12 col-md-6">
+                    <img src="./img/Foto_3.jpg" alt="Foto 3" class="img-fluid gallery-img">
+                    <div class="photo-caption">Ese día te presenté a mi papá</div>
+                </div>
+            </div>
+            <hr>
+            <div class="row justify-content-center align-items-center mb-4">
+                <div class="col-12 col-md-6">
+                    <img src="./img/Foto_4.jpg" alt="Foto 4" class="img-fluid gallery-img">
+                    <div class="photo-caption">Cuando nos robamos a la Mila XDD</div>
+                </div>
+            </div>
+            <hr>
+            <div class="row justify-content-center align-items-center mb-4">
+                <div class="col-12 col-md-6">
+                    <img src="./img/Foto_5.jpg" alt="Foto 5" class="img-fluid gallery-img">
+                    <div class="photo-caption">Ese día me acompañaste a correr por primera vez</div>
+                </div>
+            </div>
+            <hr>
+            <div class="row justify-content-center align-items-center mb-4">
+                <div class="col-12 col-md-6">
+                    <img src="./img/Foto_6.jpg" alt="Foto 6" class="img-fluid gallery-img">
+                    <div class="photo-caption">Nuestra primera salida con mis amigos</div>
+                </div>
+            </div>
+            <hr>
+            <div class="row justify-content-center align-items-center mb-4">
+                <div class="col-12 col-md-6">
+                    <img src="./img/Foto_7.jpg" alt="Foto 7" class="img-fluid gallery-img">
+                    <div class="photo-caption">Cuando salimos por tu cumpleaños a Lastarria</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta -->
+        <div class="question-container">
+            <div class="question text-center my-5">
+                <p style="color: #e75480;">Cada día a tu lado se convierte en un momento especial y único. Adoro tu compañía y tengo la certeza de que quiero seguir compartiendo y construyendo mi vida contigo. Quiero gritar al mundo que te amo, y que eres la primera y única mujer en mi corazón, Valentina...</p>
+                <h2>¿Quieres pololear conmigo? 🥰</h2>
+                <button id="siBtn" class="btn btn-success mx-2">Sí</button>
+                <button id="noBtn" class="btn btn-danger mx-2">No</button>
+            </div>
+        </div>
+
+        <!-- Mensaje final oculto -->
+        <div id="mensajeFinal" class="text-center fw-bold">Cada día contigo es único, y ahora comienza nuestra nueva historia 💖 TE AMOOOOOOOOOOOOOOOOO</div>
+
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const siBtn = document.getElementById("siBtn");
+            const noBtn = document.getElementById("noBtn");
+            const mensajeFinal = document.getElementById("mensajeFinal");
+            const questionContainer = document.querySelector(".question-container");
+            const questionDiv = document.querySelector(".question");
+
+            // Acción del botón "Sí"
+            siBtn.addEventListener("click", () => {
+                // Animar el botón "Sí" para que rebote
+                siBtn.classList.add("bounce-animation");
+                
+                // Ocultar el botón "No"
+                noBtn.style.display = "none";
+                
+                // Mostrar mensaje final en la página
+                mensajeFinal.style.display = "block";
+                mensajeFinal.scrollIntoView({ behavior: 'smooth' });
+
+                // Crear serpentinas
+                crearSerpentinas();
+                
+                // Quitar la animación después de que termine
+                setTimeout(() => {
+                    siBtn.classList.remove("bounce-animation");
+                }, 700);
+            });
+
+            // Hacer que el botón "No" escape del mouse
+            noBtn.addEventListener("mouseover", () => {
+                const containerRect = questionContainer.getBoundingClientRect();
+                const btnRect = noBtn.getBoundingClientRect();
+                
+                const maxX = containerRect.width - btnRect.width;
+                const maxY = containerRect.height - btnRect.height;
+
+                const randomX = Math.random() * maxX;
+                const randomY = Math.random() * maxY;
+
+                noBtn.style.position = "absolute";
+                noBtn.style.left = randomX + "px";
+                noBtn.style.top = randomY + "px";
+            });
+
+            // Función para crear serpentinas
+            function crearSerpentinas() {
+                const colors = ['#e75480', '#ff9eb5', '#ffc2d4', '#ff6b6b', '#ffa5a5', '#ff7b7b'];
+                
+                for (let i = 0; i < 50; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    
+                    // Posición aleatoria en la parte superior
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    
+                    // Color aleatorio
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    // Tamaño aleatorio
+                    const size = Math.random() * 10 + 5;
+                    confetti.style.width = size + 'px';
+                    confetti.style.height = size * 2 + 'px';
+                    
+                    // Duración aleatoria de la animación
+                    const duration = Math.random() * 3 + 2;
+                    confetti.style.animation = `fall ${duration}s linear forwards`;
+                    
+                    document.body.appendChild(confetti);
+                    
+                    // Eliminar la serpentina después de que termine la animación
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, duration * 1000);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+/* Animación de rebote */
+.bounce-animation {
+    animation: bounce 0.7s;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-20px);}
+    60% {transform: translateY(-10px);}
+}
+
+/* Estilos para las serpentinas */
+.confetti {
+    position: fixed;
+    opacity: 0.8;
+    top: -20px;
+    z-index: 9999;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
